@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>？？？</title>
+    <style>
+        /* 隐藏需要密码保护的内容 */
+        #protected-content {
+            display: none;
+        }
+        /* 美化密码输入区域 */
+        #password-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+        #error-msg {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 公开区域（所有人都能看到） -->
+    <p>����年，�月，2日</p>
+    <br/>
+    <p><data lost></p>
+    <p>……所以，从培育器官到机器制作，我独自一人完成了整个过程。它看起来有点像一个耳机（不知道它能不能隔离噪音？）内部的线路会被植入佩戴者脑中，与神经组织相接，也就是说这台机器一旦装上，想拆下来就是一件几乎不可能的事。这么做太冒险了，但我需要见到他。</p>
+    <p>我给机器的连接处做了不少加固措施。这仅有的四条线很脆弱，绝对不能受到任何严重破坏。</p>
+
+    <!-- 密码输入区域（始终显示） -->
+    <div id="password-section">
+        <input type="password" id="password-input" placeholder="输入密码...">
+        <button onclick="verifyPassword()">enter</button>
+        <div id="error-msg"></div>
+    </div>
+
+    <!-- 受保护的内容（初始隐藏） -->
+    <div id="protected-content">
+        <p>允许访问。</p>
+    </div>
+
+    <script>
+        // 设置你的密码（注意：这个在源码里是明文可见的！）
+        const CORRECT_PASSWORD = '2026';
+
+        function verifyPassword() {
+            const input = document.getElementById('password-input');
+            const errorMsg = document.getElementById('error-msg');
+            const protectedContent = document.getElementById('protected-content');
+            const passwordSection = document.getElementById('password-section');
+
+            if (input.value === CORRECT_PASSWORD) {
+                // 密码正确：显示隐藏内容，隐藏输入区
+                protectedContent.style.display = 'block';
+                passwordSection.style.display = 'none';
+                errorMsg.textContent = ''; // 清空错误信息
+                window.location.href = 'secret.html'; //跳转页面
+            } else {
+                // 密码错误：提示并清空输入框
+                errorMsg.textContent = 'error';
+                input.value = '';
+                input.focus();
+            }
+        }
+
+        // 额外优化：按回车键也可以触发验证
+        document.getElementById('password-input').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                verifyPassword();
+            }
+        });
+    </script>
+</body>
+</html>
