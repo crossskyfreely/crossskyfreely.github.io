@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>密码保护页面</title>
+    <title>？？？</title>
     <style>
         /* 隐藏需要密码保护的内容 */
         #protected-content {
@@ -24,20 +24,22 @@
 <body>
 
     <!-- 公开区域（所有人都能看到） -->
-    <h1>欢迎来到我的网站</h1>
-    <p>这是公开内容，不需要密码。</p>
+    <p>����年，�月，2日</p>
+    <br/>
+    <p><data lost></p>
+    <p>……所以，从培育器官到机器制作，我独自一人完成了整个过程。它看起来有点像一个耳机（不知道它能不能隔离噪音？）内部的线路会被植入佩戴者脑中，与神经组织相接，也就是说这台机器一旦装上，想拆下来就是一件几乎不可能的事。这么做太冒险了，但我需要见到他。</p>
+    <p>我给机器的连接处做了不少加固措施。这仅有的四条线很脆弱，绝对不能受到任何严重破坏。</p>
 
     <!-- 密码输入区域（始终显示） -->
     <div id="password-section">
-        <input type="password" id="password-input" placeholder="请输入访问密码">
-        <button onclick="verifyPassword()">解锁内容</button>
+        <input type="password" id="password-input" placeholder="输入密码...">
+        <button onclick="verifyPassword()">enter</button>
         <div id="error-msg"></div>
     </div>
 
     <!-- 受保护的内容（初始隐藏） -->
     <div id="protected-content">
-        <h2>🎉 这里是隐藏的精彩内容</h2>
-        <p>只有知道密码的人才能看到。</p>
+        <p>允许访问。</p>
     </div>
 
     <script>
@@ -55,9 +57,10 @@
                 protectedContent.style.display = 'block';
                 passwordSection.style.display = 'none';
                 errorMsg.textContent = ''; // 清空错误信息
+                window.location.href = 'secret.html'; //跳转页面
             } else {
                 // 密码错误：提示并清空输入框
-                errorMsg.textContent = '❌ 密码错误，请重试';
+                errorMsg.textContent = 'error';
                 input.value = '';
                 input.focus();
             }
